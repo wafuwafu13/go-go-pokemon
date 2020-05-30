@@ -3,50 +3,45 @@
     <head>
         <meta charset="UTF-8">
         <title>ポケモン計算</title>
-        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
         <link rel="stylesheet" href="styles.css">
     </head>
+
     <body>
 
         <h1 class="title">ポケモン計算</h1>
-        <div class="flex mx-8 p-6 bg-red-500 rounded-lg shadow-xl " id="listsPokemon">
-            <div class="md:flex bg-white rounded-lg p-6 ml-auto" id="pokemon-1">
-                <img class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0"src="" alt="">　
-                <h4 class="text-center md:text-left text-yellow-500">名前</h4>
-                <p class="text-blue-700"></p>　
+
+        <div id="pokemonList">
+            <div class="pokemon" id="pokemon-1">
+                <img>　
+                <h4>名前</h4>
+                <p></p>　
             </div>
-            <div class="md:flex bg-white rounded-lg p-6" id="pokemon-2">
-                <img class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0"src="" alt="">　
-                <h4 class="text-center md:text-left text-yellow-500">体重</h4>
-                <p class="text-blue-700"></p>　
+            <div class="pokemon" id="pokemon-2">
+                <img>　
+                <h4>体重</h4>
+                <p></p>　
             </div>
-            <div class="md:flex bg-white rounded-lg p-6" id="pokemon-3">
-                <img class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0"src="" alt="">　
-                <h4 class="text-center md:text-left text-yellow-500">身長</h4>
-                <p class="text-blue-700"></p>　
+            <div class="pokemon" id="pokemon-3">
+                <img>　
+                <h4>身長</h4>
+                <p></p>　
             </div>
-            <div class="md:flex bg-white rounded-lg p-6 mr-auto" id="pokemon-4">
-                <img class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0"src="" alt="">　
-                <h4 class="text-center md:text-left text-yellow-500">番号</h4>
-                <p class="text-blue-700"></p>　
+            <div class="pokemon" id="pokemon-4">
+                <img>　
+                <h4>番号</h4>
+                <p></p>　
             </div>
         </div>
-        <!--クリックしたら①発動のボタン-->
-        <div class="blackboard question">
-            <p>次のポケモンを見ますか？</p>
-        </div>
-        <div class="doragon">
-            <div class="blackboard answer float-r">
-                <button class="" onclick="consultarPokemones()">
-                    <p class="blink-before">はい</p>
-                </button>
-                <p>いいえ</p>
-            </div>
+
+        <div>
+            <button onclick="consultarPokemones()">
+                <p>はい</p>
+            </button>
         </div>
     
         <script>
     
-            let lists = document.getElementById("listsPokemon")
+            let lists = document.getElementById("pokemonList")
 
             function consultarPokemones(){
               let pokeId = Math.round(Math.random() * 150)
@@ -100,6 +95,6 @@
             }
 
         </script>
-        
+
     </body>
 </html>
