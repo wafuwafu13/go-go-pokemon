@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ポケモン計算</title>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+        <h1 class="title">ポケモン計算</h1>
+        <div class="flex mx-8 p-6 bg-red-500 rounded-lg shadow-xl " id="listsPokemon">
+            <div class="md:flex bg-white rounded-lg p-6 ml-auto" id="pokemon-1">
+                <img class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0"src="" alt="">　
+                <h4 class="text-center md:text-left text-yellow-500">名前</h4>
+                <p class="text-blue-700"></p>　
+            </div>
+            <div class="md:flex bg-white rounded-lg p-6" id="pokemon-2">
+                <img class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0"src="" alt="">　
+                <h4 class="text-center md:text-left text-yellow-500">体重</h4>
+                <p class="text-blue-700"></p>　
+            </div>
+            <div class="md:flex bg-white rounded-lg p-6" id="pokemon-3">
+                <img class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0"src="" alt="">　
+                <h4 class="text-center md:text-left text-yellow-500">身長</h4>
+                <p class="text-blue-700"></p>　
+            </div>
+            <div class="md:flex bg-white rounded-lg p-6 mr-auto" id="pokemon-4">
+                <img class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0"src="" alt="">　
+                <h4 class="text-center md:text-left text-yellow-500">番号</h4>
+                <p class="text-blue-700"></p>　
+            </div>
+        </div>
+        <!--クリックしたら①発動のボタン-->
+        <div class="blackboard question">
+            <p>次のポケモンを見ますか？</p>
+        </div>
+        <div class="doragon">
+            <div class="blackboard answer float-r">
+                <button class="" onclick="consultarPokemones()">
+                    <p class="blink-before">はい</p>
+                </button>
+                <p>いいえ</p>
+            </div>
+        </div>
+    
+        <script>
+    
+            let lists = document.getElementById("listsPokemon")
+
+            function consultarPokemones(){
+              let pokeId = Math.round(Math.random() * 150)
+              consultarPokemon(pokeId)
+            }
+            
+            function consultarPokemon(pokeId){
+              fetch(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
+              .then(function (response){
+                   response.json()
+                   .then(function(pokemon){
+                      createPokemon(pokemon, 1)
+                      returnPokemon(pokemon, 2)
+                      shinycreatePokemon(pokemon, 3)
+                      shinyreturnPokemon(pokemon, 4)
+                   })
+              })
+            }
+            
+            function createPokemon(pokemon, num){
+                let item = lists.querySelector(`#pokemon-${num}`)
+                let images = item.getElementsByTagName("img")[0] 
+                images.setAttribute("src",pokemon.sprites.front_default)
+                let numbers = item.getElementsByTagName("p")[0]
+                numbers.textContent = pokemon.name
+            }
+            
+            function returnPokemon(pokemon, num){
+                let item = lists.querySelector(`#pokemon-${num}`)
+                let images = item.getElementsByTagName("img")[0] 
+                images.setAttribute("src",pokemon.sprites.back_default)
+                let weight = item.getElementsByTagName("p")[0]
+                weight.textContent = pokemon.weight
+            
+            }
+            
+            function shinycreatePokemon(pokemon, num){
+                let item = lists.querySelector(`#pokemon-${num}`)
+                let images = item.getElementsByTagName("img")[0] 
+                images.setAttribute("src",pokemon.sprites.front_shiny)
+                let height = item.getElementsByTagName("p")[0]
+                height.textContent = pokemon.height 
+            }
+            
+            function shinyreturnPokemon(pokemon, num){
+                let item = lists.querySelector(`#pokemon-${num}`)
+                let images = item.getElementsByTagName("img")[0] 
+                images.setAttribute("src",pokemon.sprites.back_shiny)
+                let zone = item.getElementsByTagName("p")[0]
+                zone.textContent = pokemon.id
+            }
+
+        </script>
+        
+    </body>
+</html>
