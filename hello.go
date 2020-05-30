@@ -1,11 +1,10 @@
 package main
 import (
-	"database/sql"
-	"fmt"
+	"encoding/json"
+	"net/http"
 	"log"
-	"os"
-	_ "github.com/go-sql-driver/mysql"
-	"github.com/joho/godotenv"
+	"github.com/gorilla/mux"
+	usersdao "./pkg/dao/users"
 )
 
 type User struct {
@@ -14,21 +13,16 @@ type User struct {
 }
 
 func main() {
-	err := godotenv.Load()
-	if err != nil{
-		log.Fatal(err)
-	}
-	db, err := sql.Open("mysql", os.Getenv("DB_ROLE") + ":" + os.Getenv("DB_PASSWORD") + "@/" + os.Getenv("DB_NAME"))
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer db.Close()
+	r := mux.NewRouter()
+	r.HandleFunc("/users", showUsersIndex)
+	log.Fatal(http.ListenAndServe(":8080", r))
+}
 
-	id := 3
-	var name string
-	err = db.QueryRow("SELECT name from users WHERE id = ?", id).Scan(&name)
+func showUsersIndex(w http.ResponseWriter, r *http.Request) {
+	user := usersdao.FetchIndex()
+	bytes, err := json.Marshal(user)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(name)
+	w.Write([]byte(string(bytes)))
 }
