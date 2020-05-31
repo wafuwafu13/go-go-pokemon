@@ -12,27 +12,17 @@
 
         <div id="pokemonList">
             <div class="pokemon" id="pokemon-1">
-                <img>　
-                <p></p>　
+                <img class="pokemon-img">　
+                <p class="pokemon-weight"></p>　
             </div>
             <div class="pokemon" id="pokemon-2">
-                <img>　
-                <p></p>　
-            </div>
-            <div class="pokemon" id="pokemon-3">
-                <img>　
-                <p></p>　
-            </div>
-            <div class="pokemon" id="pokemon-4">
-                <img>
-                <p></p>　
+                <img class="pokemon-img">　
+                <p class="pokemon-weight"></p>　
             </div>
         </div>
 
-        <div>
-            <button onclick="consultarPokemones()">
-                <p>はい</p>
-            </button>
+        <div id="action">
+            <a id="next-btn" onclick="consultarPokemones()">とばす</a>
         </div>
     
         <script>
@@ -50,12 +40,8 @@
             function consultarPokemones(){
                 let pokeId1 = createRandomNum()
                 let pokeId2 = createRandomNum()
-                let pokeId3 = createRandomNum()
-                let pokeId4 = createRandomNum()
                 consultarPokemon(pokeId1, 1)
                 consultarPokemon(pokeId2, 2)
-                consultarPokemon(pokeId3, 3)
-                consultarPokemon(pokeId4, 4)
             }
             
             function consultarPokemon(pokeId, num){
