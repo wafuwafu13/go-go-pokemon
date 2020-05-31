@@ -4,7 +4,7 @@ body{
 }
 
 .title{
-    font-size: 80px;
+    font-size: 85px;
     text-align: center;
     color:yellow;
     -webkit-text-stroke: 0.5px blue;
@@ -35,7 +35,18 @@ body{
     font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro";
 }
 
-#next-btn{
+#action-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.action{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+#action-btn{
     display: inline-block;
     text-decoration: none;
     background: blue;
@@ -54,15 +65,20 @@ body{
     transition: .4s;
 }
 
-#action{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-#next-btn:active {
+#action-btn:active{
     -webkit-transform: translateY(1px);
     transform: translateY(1px);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
     border-bottom: none;
+}
+
+#answer-input{
+    border: solid 5px blue;
+    border-radius: 3%;
+    width: 100px;
+    font-size: 30px;
+    background-color:rgba(252,255,242,0.3);
+    box-shadow: 0 0 7px #b46862;
+    outline: 0;
+    text-align: center;
 }

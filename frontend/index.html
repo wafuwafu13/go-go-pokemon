@@ -21,8 +21,10 @@
             </div>
         </div>
 
-        <div id="action">
-            <a id="next-btn" onclick="consultarPokemones()">とばす</a>
+        <div id="action-wrapper">
+            <a class="action" id="action-btn" onclick="consultarPokemones()">とばす</a>
+            <input class="action" id="answer-input" type="number">
+            <a class="action" id="action-btn" onclick="checkResult()">答える</a>
         </div>
     
         <script>
@@ -60,6 +62,11 @@
                 images.setAttribute("src",pokemon.sprites.front_default)
                 let weight = item.getElementsByTagName("p")[0]
                 weight.textContent = pokemon.weight
+            }
+
+            function checkResult(){
+                let ansValue = document.getElementById("answer-input").value
+                console.log(ansValue)
             }
 
         </script>
