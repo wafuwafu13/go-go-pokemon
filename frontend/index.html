@@ -22,9 +22,9 @@
         </div>
 
         <div id="action-wrapper">
-            <a class="action" id="action-btn" onclick="consultarPokemones()">つぎへ</a>
+            <a class="action action-btn" onclick="consultarPokemones()">つぎへ</a>
             <input class="action" id="answer-input" type="number">
-            <a class="action" id="action-btn" onclick="checkResult()">答える</a>
+            <a class="action action-btn" onclick="checkResult()">答える</a>
         </div>
     
         <script>
@@ -39,7 +39,15 @@
                 return Math.floor(Math.random() * (max + 1 - min)) + min
             }
 
+            function resetState(){
+                document.getElementsByClassName("pokemon-img")[0].classList.remove("correct")
+                document.getElementsByClassName("pokemon-img")[1].classList.remove("correct")
+                document.getElementsByClassName("action-btn")[1].classList.remove("disabled")
+                document.getElementById("answer-input").value = ""
+            }
+
             function consultarPokemones(){
+                resetState()
                 let pokeId1 = createRandomNum()
                 let pokeId2 = createRandomNum()
                 consultarPokemon(pokeId1, 1)
@@ -71,6 +79,7 @@
                 if (ansValue == correctAns){
                     document.getElementsByClassName("pokemon-img")[0].classList.add("correct")
                     document.getElementsByClassName("pokemon-img")[1].classList.add("correct")
+                    document.getElementsByClassName("action-btn")[1].classList.add("disabled")
                 }
             }
 

@@ -50,7 +50,7 @@ body{
     margin-right: 25px;
 }
 
-#action-btn{
+.action-btn{
     display: inline-block;
     text-decoration: none;
     background: blue;
@@ -69,11 +69,20 @@ body{
     transition: .4s;
 }
 
-#action-btn:active{
+.action-btn:hover{
+    cursor: pointer;
+}
+
+.action-btn:active{
     -webkit-transform: translateY(1px);
     transform: translateY(1px);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
     border-bottom: none;
+}
+
+.action-btn.disabled{
+    pointer-events: none;
+    cursor: not-allowed;
 }
 
 #answer-input{
