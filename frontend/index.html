@@ -22,7 +22,7 @@
         </div>
 
         <div id="action-wrapper">
-            <a class="action" id="action-btn" onclick="consultarPokemones()">とばす</a>
+            <a class="action" id="action-btn" onclick="consultarPokemones()">つぎへ</a>
             <input class="action" id="answer-input" type="number">
             <a class="action" id="action-btn" onclick="checkResult()">答える</a>
         </div>
@@ -66,7 +66,12 @@
 
             function checkResult(){
                 let ansValue = document.getElementById("answer-input").value
-                console.log(ansValue)
+                let weight = document.getElementsByClassName("pokemon-weight")
+                let correctAns = Number(weight[0].textContent) + Number(weight[1].textContent)
+                if (ansValue == correctAns){
+                    document.getElementsByClassName("pokemon-img")[0].classList.add("correct")
+                    document.getElementsByClassName("pokemon-img")[1].classList.add("correct")
+                }
             }
 
         </script>
