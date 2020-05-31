@@ -13,22 +13,18 @@
         <div id="pokemonList">
             <div class="pokemon" id="pokemon-1">
                 <img>　
-                <h4>名前</h4>
                 <p></p>　
             </div>
             <div class="pokemon" id="pokemon-2">
                 <img>　
-                <h4>体重</h4>
                 <p></p>　
             </div>
             <div class="pokemon" id="pokemon-3">
                 <img>　
-                <h4>身長</h4>
                 <p></p>　
             </div>
             <div class="pokemon" id="pokemon-4">
-                <img>　
-                <h4>番号</h4>
+                <img>
                 <p></p>　
             </div>
         </div>
@@ -43,55 +39,41 @@
     
             let lists = document.getElementById("pokemonList")
 
+            consultarPokemones()
+
+            function createRandomNum(){
+                let min = 1
+                let max = 800
+                return Math.floor(Math.random() * (max + 1 - min)) + min
+            }
+
             function consultarPokemones(){
-              let pokeId = Math.round(Math.random() * 150)
-              consultarPokemon(pokeId)
+                let pokeId1 = createRandomNum()
+                let pokeId2 = createRandomNum()
+                let pokeId3 = createRandomNum()
+                let pokeId4 = createRandomNum()
+                consultarPokemon(pokeId1, 1)
+                consultarPokemon(pokeId2, 2)
+                consultarPokemon(pokeId3, 3)
+                consultarPokemon(pokeId4, 4)
             }
             
-            function consultarPokemon(pokeId){
-              fetch(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
-              .then(function (response){
-                   response.json()
-                   .then(function(pokemon){
-                      createPokemon(pokemon, 1)
-                      returnPokemon(pokemon, 2)
-                      shinycreatePokemon(pokemon, 3)
-                      shinyreturnPokemon(pokemon, 4)
-                   })
-              })
+            function consultarPokemon(pokeId, num){
+                fetch(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
+                .then(function (response){
+                    response.json()
+                    .then(function(pokemon){
+                      createPokemon(pokemon, num)
+                    })
+                })
             }
             
             function createPokemon(pokemon, num){
                 let item = lists.querySelector(`#pokemon-${num}`)
                 let images = item.getElementsByTagName("img")[0] 
                 images.setAttribute("src",pokemon.sprites.front_default)
-                let numbers = item.getElementsByTagName("p")[0]
-                numbers.textContent = pokemon.name
-            }
-            
-            function returnPokemon(pokemon, num){
-                let item = lists.querySelector(`#pokemon-${num}`)
-                let images = item.getElementsByTagName("img")[0] 
-                images.setAttribute("src",pokemon.sprites.back_default)
                 let weight = item.getElementsByTagName("p")[0]
                 weight.textContent = pokemon.weight
-            
-            }
-            
-            function shinycreatePokemon(pokemon, num){
-                let item = lists.querySelector(`#pokemon-${num}`)
-                let images = item.getElementsByTagName("img")[0] 
-                images.setAttribute("src",pokemon.sprites.front_shiny)
-                let height = item.getElementsByTagName("p")[0]
-                height.textContent = pokemon.height 
-            }
-            
-            function shinyreturnPokemon(pokemon, num){
-                let item = lists.querySelector(`#pokemon-${num}`)
-                let images = item.getElementsByTagName("img")[0] 
-                images.setAttribute("src",pokemon.sprites.back_shiny)
-                let zone = item.getElementsByTagName("p")[0]
-                zone.textContent = pokemon.id
             }
 
         </script>
