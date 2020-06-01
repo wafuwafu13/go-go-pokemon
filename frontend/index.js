@@ -12,7 +12,7 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query("select * from users;", function(err, rows, fields) {
+connection.query("select * from pokemons;", function(err, rows, fields) {
     if (err) {
         console.log(err)
     }
