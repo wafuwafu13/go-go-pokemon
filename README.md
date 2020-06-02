@@ -1,6 +1,5 @@
 # go-go-pokemon
 
 - Node.js, MySQL
-- Rails, MySQL
-- Rails, GraphQL
+- Rails, PostgreSQL
 - GO, GraphQL
