@@ -83,6 +83,20 @@
                 }
             }
 
+            function fetchFromHeroku(){
+                fetch('https://radiant-plains-63992.herokuapp.com/api/v1/posts',{
+                
+                })
+                .then(function (response){
+                    response.json()
+                    .then(function(pokemon){
+                      console.log(pokemon)
+                    })
+                })
+            }
+
+            fetchFromHeroku()
+
         </script>
 
     </body>
