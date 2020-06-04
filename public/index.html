@@ -56,9 +56,9 @@
             
             function consultarPokemon(pokeId, num){
                 fetch(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
-                .then(function (response){
+                .then((response) => {
                     response.json()
-                    .then(function(pokemon){
+                    .then((pokemon) => {
                       createPokemon(pokemon, num)
                     })
                 })
@@ -80,7 +80,6 @@
                     document.getElementsByClassName("pokemon-img")[0].classList.add("correct")
                     document.getElementsByClassName("pokemon-img")[1].classList.add("correct")
                     document.getElementsByClassName("action-btn")[1].classList.add("disabled")
-                    window.location.href = './post/8';
                 }
             }
 

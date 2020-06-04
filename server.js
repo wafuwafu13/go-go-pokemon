@@ -1,15 +1,11 @@
 var express = require('express');
 var app = express();
 
-app.set('views', __dirname + '/views')
-app.set('view engine', 'ejs')
-
 app.use(express.static(__dirname + '/public'))
 
-// axios を require してインスタンスを生成する
 const axiosBase = require('axios');
 const axios = axiosBase.create({
-  baseURL: 'https://radiant-plains-63992.herokuapp.com/api/v1', // バックエンドB のURL:port を指定する
+  baseURL: 'https://agile-thicket-77925.herokuapp.com/api/v1',
   headers: {
     'Content-Type': 'application/json',
     'X-Requested-With': 'XMLHttpRequest'
@@ -17,13 +13,9 @@ const axios = axiosBase.create({
   responseType: 'json'  
 });
 
-// [1] フロントエンドからのリクエストを受け付けて
 app.get('/get', (req, res, next) => {
-  // [2] バックエンドB に対してリクエストを投げる
-  axios.get('/posts')
+  axios.get('/pokemons')
   .then((response) => {
-    // [4] フロントエンドに対してレスポンスを返す
-    res.render('index', {data: response.data})
     console.log(response.data)
   })
   .catch((error) => {
@@ -31,14 +23,12 @@ app.get('/get', (req, res, next) => {
   });
 });
 
-app.get('/post/:id([0-9]+)', (req, res, next) => {
-  // [2] バックエンドB に対してリクエストを投げる
-  axios.post('/posts', {
-    title: req.params.id
+app.get('/post/:name/:id([0-9]+)', (req, res, next) => {
+  axios.post('/pokemons', {
+    name: req.params.name,
+    poke_id: req.params.id
   })
   .then((response) => {
-    // [4] フロントエンドに対してレスポンスを返す
-    res.render('index', {data: response.data})
     console.log(response.data)
   })
   .catch((error) => {
