@@ -31,10 +31,10 @@ app.get('/get', (req, res, next) => {
   });
 });
 
-app.get('/post', (req, res, next) => {
+app.get('/post/:id([0-9]+)', (req, res, next) => {
   // [2] バックエンドB に対してリクエストを投げる
   axios.post('/posts', {
-    title: "title3"
+    title: req.params.id
   })
   .then((response) => {
     // [4] フロントエンドに対してレスポンスを返す

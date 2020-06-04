@@ -80,22 +80,9 @@
                     document.getElementsByClassName("pokemon-img")[0].classList.add("correct")
                     document.getElementsByClassName("pokemon-img")[1].classList.add("correct")
                     document.getElementsByClassName("action-btn")[1].classList.add("disabled")
+                    window.location.href = './post/8';
                 }
             }
-
-            function fetchFromHeroku(){
-                fetch('https://radiant-plains-63992.herokuapp.com/api/v1/posts',{
-                
-                })
-                .then(function (response){
-                    response.json()
-                    .then(function(pokemon){
-                      console.log(pokemon)
-                    })
-                })
-            }
-
-            fetchFromHeroku()
 
         </script>
 
