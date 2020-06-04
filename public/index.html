@@ -72,14 +72,29 @@
                 weight.textContent = pokemon.weight
             }
 
+            function searchPokeId(){
+                let item = lists.querySelector("#pokemon-1")
+                let images = item.getElementsByTagName("img")[0]
+                let src = images.getAttribute("src")
+                let splitedSrc = src.split('/')
+                let targetString = splitedSrc[splitedSrc.length-1]
+                let pokeId = Number(targetString.split('.')[0])
+
+                return pokeId
+            }
+
             function checkResult(){
                 let ansValue = document.getElementById("answer-input").value
                 let weight = document.getElementsByClassName("pokemon-weight")
+
                 let correctAns = Number(weight[0].textContent) + Number(weight[1].textContent)
+
                 if (ansValue == correctAns){
                     document.getElementsByClassName("pokemon-img")[0].classList.add("correct")
                     document.getElementsByClassName("pokemon-img")[1].classList.add("correct")
                     document.getElementsByClassName("action-btn")[1].classList.add("disabled")
+                    let pokeId = searchPokeId()
+                    window.location.href = `./post/ポケモン/${pokeId}`
                 }
             }
 
