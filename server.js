@@ -23,7 +23,7 @@ app.get('/get', (req, res, next) => {
   });
 });
 
-app.get('/post/:name/:id([0-9]+)', (req, res, next) => {
+app.get('/post/:name/:id', (req, res, next) => {
   axios.post('/pokemons', {
     name: req.params.name,
     poke_id: req.params.id
