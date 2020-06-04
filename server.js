@@ -18,9 +18,24 @@ const axios = axiosBase.create({
 });
 
 // [1] フロントエンドからのリクエストを受け付けて
-app.get('/post', (req, res, next) => {
+app.get('/get', (req, res, next) => {
   // [2] バックエンドB に対してリクエストを投げる
   axios.get('/posts')
+  .then((response) => {
+    // [4] フロントエンドに対してレスポンスを返す
+    res.render('index', {data: response.data})
+    console.log(response.data)
+  })
+  .catch((error) => {
+    console.log('ERROR!! occurred in Backend.')
+  });
+});
+
+app.get('/post', (req, res, next) => {
+  // [2] バックエンドB に対してリクエストを投げる
+  axios.post('/posts', {
+    title: "title3"
+  })
   .then((response) => {
     // [4] フロントエンドに対してレスポンスを返す
     res.render('index', {data: response.data})
