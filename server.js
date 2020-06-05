@@ -16,11 +16,11 @@ const axios = axiosBase.create({
   responseType: 'json'  
 });
 
-app.get('/', (req, res, next) => {
+app.get('/', (res) => {
   res.sendfile(__dirname + '/public/index.html');
 })
 
-app.get('/pokemon', (req, res, next) => {
+app.get('/pokemon', (res) => {
   axios.get('/pokemons')
   .then((response) => {
     res.render('index', {data: response.data.data})
@@ -31,7 +31,7 @@ app.get('/pokemon', (req, res, next) => {
   });
 });
 
-app.get('/post/:name/:id', (req, res, next) => {
+app.get('/post/:name/:id', (req) => {
   axios.post('/pokemons', {
     name: req.params.name,
     poke_id: req.params.id
@@ -44,7 +44,7 @@ app.get('/post/:name/:id', (req, res, next) => {
   });
 });
 
-app.get('/delete/:id', (req, res, next) => {
+app.get('/delete/:id', (req) => {
   axios.delete('pokemons/' + req.params.id)
   .then((response) => {
     console.log(response.data)
