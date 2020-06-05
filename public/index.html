@@ -70,6 +70,7 @@
                 images.setAttribute("src",pokemon.sprites.front_default)
                 let weight = item.getElementsByTagName("p")[0]
                 weight.textContent = pokemon.weight
+                localStorage.setItem('name', pokemon.name)
             }
 
             function searchPokeId(){
@@ -93,8 +94,9 @@
                     document.getElementsByClassName("pokemon-img")[0].classList.add("correct")
                     document.getElementsByClassName("pokemon-img")[1].classList.add("correct")
                     document.getElementsByClassName("action-btn")[1].classList.add("disabled")
+                    let name = localStorage.getItem("name")
                     let pokeId = searchPokeId()
-                    window.location.href = `./post/ポケモン/${pokeId}`
+                    window.location.href = `./post/${name}/${pokeId}`
                 }
             }
 
