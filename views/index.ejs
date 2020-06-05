@@ -17,16 +17,30 @@
             <% let poke_data = data %>
             <ul>
                 <% for (let poke of poke_data) { %>
-                    <% let poke_id = poke.id %>
+                    <% let poke_id = poke.poke_id %>
                     <li class="pokemon-ejs">
                         <p class="pokemon-name-ejs"><%= poke.name %></p>
                         <a href="https://zukan.pokemon.co.jp/detail/<%= poke_id %>" target="_blank">
                            <img class="pokemon-img-ejs" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= poke_id %>.png">
                         </a>
+                        <button class="pokemon-miss" onclick="missPokemon(<%= poke_id %>)">にがす</button>
                     </li>
                 <% } %>
             </ul>
         </div>
 
+        <script>
+    
+            function missPokemon(pokeId){
+                let ans = confirm("ほんとうに、にがしますか？")
+                if (ans == true){
+                    window.location.href = `./delete/${pokeId}`
+                    alert('ポケモンをにがしました。')
+                    window.location.href = "./pokemon"
+                }
+            }
+    
+        </script>
+    
     </body>
 </html>

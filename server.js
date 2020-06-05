@@ -44,5 +44,14 @@ app.get('/post/:name/:id', (req, res, next) => {
   });
 });
 
+app.get('/delete/:id', (req, res, next) => {
+  axios.delete('pokemons/' + req.params.id)
+  .then((response) => {
+    console.log(response.data)
+  })
+  .catch((error) => {
+    console.log('ERROR!! occurred in Backend.' + error)
+  });
+})
 app.listen(3000);
 console.log('server is running')
