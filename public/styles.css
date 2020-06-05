@@ -10,7 +10,7 @@ body{
     position: relative;
 }
 
-#look{
+#look, #back{
     position: absolute;
     left: 0;
     margin-top: 50px;
@@ -23,15 +23,25 @@ body{
     font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro";
 }
 
-#pokemonList{
+#pokemon-list{
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
+#pokemon-list-ejs{
+    width: 100%;
+}
+
 .pokemon{
     margin-left: 25px;
     margin-right: 25px;
+}
+
+.pokemon-ejs{
+    margin: 5px;
+	float: left;
+	list-style: none;
 }
 
 .pokemon-img{
@@ -41,6 +51,18 @@ body{
 
 .pokemon-img.correct{
     border: solid 5px pink;
+}
+
+.pokemon-name-ejs{
+    font-size: 20px;
+    color:yellow;
+    -webkit-text-stroke: 2px blue;
+    font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro";
+}
+
+.pokemon-img-ejs{
+    height: 150px;
+    background-color:rgba(252,255,242,0.3);
 }
 
 .pokemon-weight{
