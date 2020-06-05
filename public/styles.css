@@ -73,6 +73,18 @@ body{
     font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro";
 }
 
+.pokemon-miss{
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #99CCFF;
+    color: yellow;
+    padding: 8px 8px;
+    font-size: 15px;
+    cursor: pointer;
+    outline: 0;
+}
+
 #action-wrapper{
     display: flex;
     flex-direction: row;

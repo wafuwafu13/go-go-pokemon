@@ -73,11 +73,13 @@
                 images.setAttribute("src",pokemon.sprites.front_default)
                 let weight = item.getElementsByTagName("p")[0]
                 weight.textContent = pokemon.weight
-                localStorage.setItem('name', pokemon.name)
+                if (num == 1){
+                    localStorage.setItem('name', pokemon.name)
+                }
             }
 
             function searchPokeId(){
-                let item = lists.querySelector("#pokemon-1")
+                let item = lists.querySelector("#pokemon-1") // 左側のポケモンをゲット
                 let images = item.getElementsByTagName("img")[0]
                 let src = images.getAttribute("src")
                 let splitedSrc = src.split('/')
@@ -100,6 +102,7 @@
                     let name = localStorage.getItem("name")
                     let pokeId = searchPokeId()
                     window.location.href = `./post/${name}/${pokeId}`
+                    alert('ポケモンゲット！')
                     window.location.href = './'
                 }
             }
