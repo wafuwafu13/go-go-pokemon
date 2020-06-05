@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-app.set('port', (process.env.PORT || 3000));
+//app.set('port', (process.env.PORT || 3000));
 app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs')
 
@@ -54,5 +54,7 @@ app.get('/delete/:id', (req, res, next) => {
     console.log('ERROR!! occurred in Backend.' + error)
   });
 })
-app.listen(3000);
+
+let port = process.env.PORT || 8080;
+app.listen(port);
 console.log('server is running')
