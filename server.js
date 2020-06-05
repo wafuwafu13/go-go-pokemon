@@ -1,5 +1,5 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
 app.use(express.static(__dirname + '/public'))
 
@@ -14,12 +14,13 @@ const axios = axiosBase.create({
 });
 
 app.get('/get', (req, res, next) => {
+  res.sendFile(__dirname + '/public/index.html')
   axios.get('/pokemons')
   .then((response) => {
     console.log(response.data)
   })
   .catch((error) => {
-    console.log('ERROR!! occurred in Backend.')
+    console.log('ERROR!! occurred in Backend.' + error)
   });
 });
 
@@ -32,13 +33,10 @@ app.get('/post/:name/:id', (req, res, next) => {
     console.log(response.data)
   })
   .catch((error) => {
-    console.log('ERROR!! occurred in Backend.')
+    console.log('ERROR!! occurred in Backend.' + error)
   });
 });
 
-app.get('/index', (req, res, next) => {
-  res.sendFile(__dirname + '/public/index.html')
-});
 
 app.listen(3000);
 console.log('server is running')
