@@ -1,6 +1,13 @@
 # ポケモン足し算
 
+## :globe_with_meridians:  App URL
+
+### [ポケモン足し算](https://go-go-pokemon.herokuapp.com/)  
+  
+※起動に最大20秒程かかります。
+
 ## :arrow_forward: How to get started
+Herokuのコールドスタートが待てない人はこちらでお願いします。
 まず、以下のコマンドを打ってください。
 
 ```
@@ -11,7 +18,7 @@ $ nodemon server
 ```
 
 次に、以下のURLにアクセスしてください。  
-http://localhost:3000/
+http://localhost:8080/
 
 ## :shipit: Backend
 
@@ -20,7 +27,8 @@ http://localhost:3000/
 
 RubyOnRails, PorsgreSQL, Herokuを用いています。  
 
-[ポケモン貯蔵庫](https://github.com/wafuwafu13/go-go-pokemon-db)
+GitHubはこちらです。　[ポケモン貯蔵庫](https://github.com/wafuwafu13/go-go-pokemon-db)
 
 ## :pencil2:  Output Article
 
+### [Express, RubyonRailsでWebアプリをフルスタック開発しよう！](https://qiita.com/wafuwafu13/items/4e7039c9359541d0c27e)
