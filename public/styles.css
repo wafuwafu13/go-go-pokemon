@@ -3,9 +3,21 @@ body{
     background-size: cover;
 }
 
-.title{
+#header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+}
+
+#look{
+    position: absolute;
+    left: 0;
+    margin-top: 50px;
+}
+
+#title{
     font-size: 85px;
-    text-align: center;
     color:yellow;
     -webkit-text-stroke: 0.5px blue;
     font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro";

@@ -1,3 +1,10 @@
 <html>
-    <%= data.data[0].title %>
+    <% let poke_data = data %>
+    <% for (let poke of poke_data) { %>
+        <p><% let poke_id = poke.id %></p>
+        <p><%= poke.name %></p>
+        <a href="https://zukan.pokemon.co.jp/detail/<%= poke_id %>" target="_blank">
+           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= poke_id %>.png">
+        </a>
+    <% } %>
 </html>
