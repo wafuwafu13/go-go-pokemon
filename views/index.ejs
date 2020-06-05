@@ -1,10 +1,32 @@
-<html>
-    <% let poke_data = data %>
-    <% for (let poke of poke_data) { %>
-        <p><% let poke_id = poke.id %></p>
-        <p><%= poke.name %></p>
-        <a href="https://zukan.pokemon.co.jp/detail/<%= poke_id %>" target="_blank">
-           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= poke_id %>.png">
-        </a>
-    <% } %>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ポケモン足し算</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+
+        <div id="header">
+            <a class="action action-btn" id="back" href="./">もどる</a>
+            <h1 id="title">ポケモン図鑑</h1>
+        </div>
+
+        <div id="pokemon-list-ejs">
+            <% let poke_data = data %>
+            <ul>
+                <% for (let poke of poke_data) { %>
+                    <% let poke_id = poke.id %>
+                    <li class="pokemon-ejs">
+                        <p class="pokemon-name-ejs"><%= poke.name %></p>
+                        <a href="https://zukan.pokemon.co.jp/detail/<%= poke_id %>" target="_blank">
+                           <img class="pokemon-img-ejs" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= poke_id %>.png">
+                        </a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+
+    </body>
 </html>
