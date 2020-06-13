@@ -1,3 +1,5 @@
+<img width="1429" alt="go-go-pokemon" src="https://user-images.githubusercontent.com/50798936/84570812-b3d06700-adca-11ea-8b97-e79d1759e3bf.png">
+
 # ポケモン足し算
 
 ## :globe_with_meridians:  App URL
