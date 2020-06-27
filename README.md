@@ -9,7 +9,7 @@
 ※起動に最大20秒程かかります。
 
 ## :arrow_forward: How to get started
-Herokuのコールドスタートが待てない人はこちらでお願いします。
+Herokuのコールドスタートが待てない人はこちらでお願いします。  
 まず、以下のコマンドを打ってください。
 
 ```
@@ -18,18 +18,28 @@ $ cd go-go-pokemon
 $ npm i
 $ nodemon server
 ```
-
-次に、以下のURLにアクセスしてください。  
-http://localhost:8080/
+以下のURLにアクセスしてください。  
+http://localhost:8080/  
+  
+次に、バックエンド側のサーバーを起動します。  
+  
+```
+$ git clone https://github.com/wafuwafu13/go-go-pokemon-db.git
+$ cd go-go-pokemon-db
+$ docker-compose build
+$ docker-compose run web rake db:create db:migrate
+$ docker-compose up -d
+```
 
 ## :shipit: Backend
 
 
 こちらの[API仕様YAML](https://github.com/wafuwafu13/go-go-pokemon-db/blob/master/api-document.yaml)を、[Swagger Editor](https://editor.swagger.io/)で確認してください。  
 
-RubyOnRails, PorsgreSQL, Herokuを用いています。  
+RubyOnRails, PorsgreSQL, Heroku, Dockerを用いています。  
 
-GitHubはこちらです。　[ポケモン貯蔵庫](https://github.com/wafuwafu13/go-go-pokemon-db)
+GitHubはこちらです。　
+### [ポケモン貯蔵庫](https://github.com/wafuwafu13/go-go-pokemon-db)
 
 ## :pencil2:  Output Article
 
